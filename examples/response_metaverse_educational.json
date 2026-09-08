@@ -1,0 +1,11 @@
+{
+  "label": "low_risk",
+  "class_scores": {
+    "high_risk": 0.08658333333333333,
+    "low_risk": 0.9134166666666665,
+    "moderate_risk": 0.0
+  },
+  "training_mode": "metaverse_educational",
+  "model_version": "c7eae68df7ff",
+  "note": "Educational class scores; not calibrated fraud probabilities."
+}

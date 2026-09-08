@@ -1,0 +1,10 @@
+{
+  "hour_of_day": 14,
+  "amount": 125.5,
+  "ip_prefix": 192.0,
+  "login_frequency": 4,
+  "session_duration": 35,
+  "location_region": "Europe",
+  "purchase_pattern": "focused",
+  "age_group": "adult"
+}

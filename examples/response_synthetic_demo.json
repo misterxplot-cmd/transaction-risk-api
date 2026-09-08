@@ -1,0 +1,11 @@
+{
+  "label": "low_risk",
+  "class_scores": {
+    "high_risk": 0.07096954942205438,
+    "low_risk": 0.8299119399183301,
+    "moderate_risk": 0.09911851065961545
+  },
+  "training_mode": "synthetic_demo",
+  "model_version": "8f9b2687ef33",
+  "note": "Educational class scores; not calibrated fraud probabilities."
+}
