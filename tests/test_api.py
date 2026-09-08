@@ -33,7 +33,16 @@ def test_prediction_scores_and_batch_match(client, transaction):
     assert body["label"] == max(body["class_scores"], key=body["class_scores"].get)
     batch = client.post("/predict/batch", json={"transactions": [transaction, transaction]})
     assert batch.status_code == 200
-    assert batch.json()["predictions"] == [body, body]
+    predictions = batch.json()["predictions"]
+    assert len(predictions) == 2
+    for prediction in predictions:
+        # Parallel tree accumulation can differ at floating-point roundoff.
+        assert prediction["class_scores"] == pytest.approx(
+            body["class_scores"], rel=1e-12, abs=1e-12
+        )
+        assert {key: value for key, value in prediction.items() if key != "class_scores"} == {
+            key: value for key, value in body.items() if key != "class_scores"
+        }
 
 
 @pytest.mark.parametrize("field,value", [("amount", -1), ("hour_of_day", 24),
